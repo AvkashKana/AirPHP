@@ -4,8 +4,8 @@ Airbnb PHP API caller
 Reverse Engineered Airbnb API with Airbnb's Android App and [mitmproxy](https://github.com/mitmproxy/mitmproxy)
 
 ## Disclaimer
-The Project is still in VERY!! Development.
-Right now it has roundabout 4 features (API-Calls)
+The Project is still in VERY!! Development.  
+Right now it has roundabout 4 features (API-Calls)  
 I won't guarrantee that a future version will be compatible with your code beeing written with a current one.
 
 ## Requirements
@@ -44,3 +44,5 @@ $airbnb->setcurrency('RUB'); //Set currency
 $airbnb->setecho(true); //if true: response will be echoed. if false: response will be returned as bigass string
 $airbnb->getListing($listingID) //echo (or return) the Listing API stuff
 ```
+## Documentation
+Look at DOCUMENTATION.md for further details

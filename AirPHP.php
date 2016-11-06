@@ -1,6 +1,6 @@
 <?php
 
-class AirBnB {
+class AirPHP {
   private $header = [""];
   private $curl;
   private $locale = "de-DE";
@@ -57,7 +57,7 @@ class AirBnB {
         }
     ]
     }";
-    $this->curl($url, $content);
+    echo $this->curl($url, $content);
   }
   function getBatch() { // I dont know what this does.. captured from mitmproxy
     $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=de-DE&currency=EUR";
@@ -104,19 +104,19 @@ class AirBnB {
         }
     ]
 }';
-    $this->curl($url, $content);
+    echo $this->curl($url, $content);
   }
   
   function getListings($limit, $availability) {
     $url = "https://api.airbnb.com/v2/listings?_format=v1_legacy_long&_limit=$limit&_offset=0&has_availability=$availability&locale=$this->locale&currency=$this->currency";
     $content = "";
-    $this->curl($url, $content);
+    echo $this->curl($url, $content);
   }
   
   function getListing($listingID) {
     $url = "https://api.airbnb.com/v2/listings/$listingID?_format=v1_legacy_long_manage_listing&locale=$this->locale&currency=$this->currency";
     $content = "";
-    $this->curl($url, $content);
+    echo $this->curl($url, $content);
   }
 }
 ?>
