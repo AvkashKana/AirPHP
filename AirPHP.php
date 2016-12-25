@@ -7,17 +7,19 @@ class AirPHP {
   private $currency = "EUR";
   private $echo = true;
   
+	//constructor which sets header according to OAuth Token
   function __construct ($token) {
     $this->header = [
     "X-Airbnb-OAuth-Token:$token"
     ];
   }
-  
+  // Sets Locale in format: language-COUNTRY
   function setlocale ($locale) {
     $this->locale = $locale;
   }
-  
+  // Sets Currency in ISO 4217 Format (3 Chars)
   function setcurrency ($locale) {
+		if (strlen($locale) != 3) return false;
     $this->currency = $currency;
   }
   function setecho ($echo) {
@@ -32,7 +34,8 @@ class AirPHP {
     curl_setopt($curl, CURLOPT_HTTPHEADER, $this->header);
     $server_output = curl_exec ($curl);
     curl_close ($curl);
-    if ($this->echo) {
+		
+    if ($this->echo) { // if echo then echo as json, else return from function
       header('Content-Type: application/json');
       echo $server_output;
     } else {
@@ -59,6 +62,8 @@ class AirPHP {
     }";
     echo $this->curl($url, $content);
   }
+	
+	
   function getBatch() { // I dont know what this does.. captured from mitmproxy
     $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=de-DE&currency=EUR";
     $content = '{
